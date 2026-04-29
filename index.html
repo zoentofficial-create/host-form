@@ -1,70 +1,437 @@
-🎬
-지오엔터테인먼트
-Z.O Entertainment · TikTok Live Agency
-틱톡 라이브 호스트 가입 신청
-지오엔터테인먼트 틱톡 라이브 에이전시에 오신 것을 환영합니다! 아래 정보를 입력해 주시면 담당 매니저가 24시간 이내 연락드리겠습니다.
-📋 기본 정보
-이름 *
-닉네임 (활동명) *
-생년월일 *
-성별 *
-            선택
-            남성
-            여성
-            기타
-          
-전화번호 *
-카카오톡 ID *
-틱톡 ID *
-이메일
-주거 지역 *
-          거주 지역을 선택해 주세요
-          서울특별시
-          경기도
-          인천광역시
-          부산광역시
-          대구광역시
-          광주광역시
-          대전광역시
-          울산광역시
-          세종특별자치시
-          강원도
-          충청북도
-          충청남도
-          전라북도
-          전라남도
-          경상북도
-          경상남도
-          제주특별자치도
-          해외 거주
-        
-본업 유무 *
-✅ 있음
-❌ 없음
-방송 경험 유무 *
-(타 플랫폼 포함)
-✅ 있음
-❌ 없음
-📡 방송 계획
-주 방송 횟수 *
-주 1~2회
-주 3~4회
-주 5회 이상
-매일
-방송 시간대 * (복수 선택 가능)
-🌅 오전 (06~12시)
-☀️ 오후 (12~18시)
-🌆 저녁 (18~24시)
-🌙 심야 (00~06시)
-💬 자기소개 & 콘텐츠 방향
-콘텐츠 방향성 / 본인 장점 *
-자기소개 / 전하고 싶은 말
-가입 신청 일시
-✅ 동의 및 제출
-수집 항목: 이름, 연락처, 생년월일, 성별, 카카오톡ID, 틱톡ID, 이메일, 주거지역, 본업 및 방송 경험 정보, 방송 계획, 콘텐츠 방향성
-수집 목적: 에이전시 서비스 제공 및 매니저 매칭
-보유 기간: 계약 종료 후 1년
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>지오ENT 호스트 가입 신청</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, #1E3A5F 0%, #2E75B6 100%);
+    min-height: 100vh; padding: 40px 16px;
+  }
+  .container { max-width: 640px; margin: 0 auto; }
 
-개인정보 수집·이용에 동의합니다
-*
-🚀   가입 신청하기
+  .header-card {
+    background: white; border-radius: 12px 12px 0 0;
+    border-top: 8px solid #C9A84C; padding: 32px 32px 24px; margin-bottom: 2px;
+  }
+  .logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .logo-icon {
+    width: 48px; height: 48px; background: #1E3A5F; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 22px;
+  }
+  .logo-text h1 { font-size: 20px; font-weight: 700; color: #1E3A5F; }
+  .logo-text p { font-size: 13px; color: #888; margin-top: 2px; }
+  .header-card h2 { font-size: 24px; font-weight: 700; color: #1E3A5F; margin-bottom: 8px; }
+  .header-card .desc { font-size: 14px; color: #555; line-height: 1.7; }
+
+  .form-card { background: white; padding: 28px 32px; margin-bottom: 2px; }
+  .form-card:last-of-type { border-radius: 0 0 12px 12px; }
+  .section-label {
+    font-size: 12px; font-weight: 600; color: #2E75B6; letter-spacing: 0.5px;
+    margin-bottom: 18px; padding-bottom: 8px; border-bottom: 2px solid #D5E8F0;
+  }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 14px; font-weight: 600; color: #1E3A5F; margin-bottom: 7px; }
+  .req { color: #e53e3e; margin-left: 3px; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 11px 14px; border: 1.5px solid #ddd; border-radius: 8px;
+    font-size: 14px; font-family: inherit; color: #333; background: #fafafa;
+    transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: #2E75B6; box-shadow: 0 0 0 3px rgba(46,117,182,0.12); background: white;
+  }
+  .field textarea { resize: vertical; min-height: 80px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .radio-group { display: flex; gap: 10px; flex-wrap: wrap; }
+  .radio-pill {
+    display: flex; align-items: center; gap: 7px;
+    background: #f5f7fa; border: 1.5px solid #ddd; border-radius: 20px;
+    padding: 8px 18px; cursor: pointer; font-size: 14px; font-weight: 600;
+    color: #444; transition: all 0.15s; user-select: none;
+  }
+  .radio-pill input[type="radio"] { display: none; }
+  .radio-pill:hover { border-color: #2E75B6; background: #eef4fb; }
+  .radio-pill.on { border-color: #2E75B6; background: #2E75B6; color: white; }
+
+  /* 체크박스 pill (방송 시간대) */
+  .check-group { display: flex; gap: 10px; flex-wrap: wrap; }
+  .check-pill {
+    display: flex; align-items: center; gap: 7px;
+    background: #f5f7fa; border: 1.5px solid #ddd; border-radius: 20px;
+    padding: 8px 18px; cursor: pointer; font-size: 14px; font-weight: 600;
+    color: #444; transition: all 0.15s; user-select: none;
+  }
+  .check-pill input[type="checkbox"] { display: none; }
+  .check-pill:hover { border-color: #2E75B6; background: #eef4fb; }
+  .check-pill.on { border-color: #2E75B6; background: #2E75B6; color: white; }
+
+  .side-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    align-items: start; margin-bottom: 18px;
+  }
+  .side-row .field { margin-bottom: 0; }
+  .detail-col { display: none; }
+  .detail-col.show { display: block; }
+
+  /* 가입일시 읽기전용 */
+  .field input[readonly] {
+    background: #f0f4f8; color: #666; cursor: default;
+    border-color: #e0e0e0;
+  }
+
+  .agree-box {
+    background: #f8f9fa; border: 1.5px solid #e0e0e0; border-radius: 8px;
+    padding: 14px 16px; font-size: 13px; color: #555; line-height: 1.8; margin-bottom: 16px;
+  }
+  .agree-check {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 600; color: #333; cursor: pointer; margin-bottom: 20px;
+  }
+  .agree-check input { width: 18px; height: 18px; cursor: pointer; }
+  .submit-btn {
+    width: 100%; padding: 16px;
+    background: linear-gradient(135deg, #1E3A5F, #2E75B6);
+    color: white; border: none; border-radius: 10px;
+    font-size: 16px; font-weight: 700; font-family: inherit;
+    cursor: pointer; letter-spacing: 0.5px; transition: opacity 0.2s;
+  }
+  .submit-btn:hover { opacity: 0.9; }
+  .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .spinner {
+    display: inline-block; width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,0.4); border-top-color: white;
+    border-radius: 50%; animation: spin 0.7s linear infinite;
+    margin-right: 8px; vertical-align: middle;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .error-msg {
+    background: #fff5f5; border: 1px solid #fca5a5; border-radius: 8px;
+    padding: 12px; font-size: 13px; color: #c0392b; margin-top: 10px; display: none;
+  }
+  #success-screen {
+    display: none; text-align: center; padding: 60px 32px; background: white; border-radius: 12px;
+  }
+  #success-screen .icon { font-size: 48px; margin-bottom: 20px; }
+  #success-screen h3 { font-size: 22px; font-weight: 700; color: #1E3A5F; margin-bottom: 10px; }
+  #success-screen p { font-size: 14px; color: #666; line-height: 1.7; }
+
+  @media (max-width: 500px) {
+    .row2, .side-row { grid-template-columns: 1fr; }
+    .header-card, .form-card { padding: 20px 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header-card">
+    <div class="logo-row">
+      <div class="logo-icon">🎬</div>
+      <div class="logo-text">
+        <h1>지오엔터테인먼트</h1>
+        <p>Z.O Entertainment · TikTok Live Agency</p>
+      </div>
+    </div>
+    <h2>틱톡 라이브 호스트 가입 신청</h2>
+    <p class="desc">지오엔터테인먼트 틱톡 라이브 에이전시에 오신 것을 환영합니다!<br>아래 정보를 입력해 주시면 담당 매니저가 24시간 이내 연락드리겠습니다.</p>
+  </div>
+
+  <form id="hostForm">
+
+    <!-- ───────────── 기본 정보 ───────────── -->
+    <div class="form-card">
+      <div class="section-label">📋 기본 정보</div>
+
+      <div class="row2">
+        <div class="field"><label>이름 <span class="req">*</span></label><input type="text" name="이름" placeholder="홍길동" required></div>
+        <div class="field"><label>닉네임 (활동명) <span class="req">*</span></label><input type="text" name="닉네임" placeholder="라이브킹" required></div>
+      </div>
+
+      <div class="row2">
+        <div class="field"><label>생년월일 <span class="req">*</span></label><input type="date" name="생년월일" required></div>
+        <div class="field">
+          <label>성별 <span class="req">*</span></label>
+          <select name="성별" required>
+            <option value="">선택</option>
+            <option>남성</option>
+            <option>여성</option>
+            <option>기타</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field"><label>전화번호 <span class="req">*</span></label><input type="tel" name="전화번호" placeholder="010-0000-0000" required></div>
+        <div class="field"><label>카카오톡 ID <span class="req">*</span></label><input type="text" name="카카오톡ID" placeholder="kakao_id" required></div>
+      </div>
+
+      <div class="row2">
+        <div class="field"><label>틱톡 ID <span class="req">*</span></label><input type="text" name="틱톡ID" placeholder="@tiktok_id" required></div>
+        <div class="field"><label>이메일</label><input type="email" name="이메일" placeholder="example@email.com"></div>
+      </div>
+
+      <div class="field">
+        <label>주거 지역 <span class="req">*</span></label>
+        <select name="주거지역" required>
+          <option value="">거주 지역을 선택해 주세요</option>
+          <option>서울특별시</option>
+          <option>경기도</option>
+          <option>인천광역시</option>
+          <option>부산광역시</option>
+          <option>대구광역시</option>
+          <option>광주광역시</option>
+          <option>대전광역시</option>
+          <option>울산광역시</option>
+          <option>세종특별자치시</option>
+          <option>강원도</option>
+          <option>충청북도</option>
+          <option>충청남도</option>
+          <option>전라북도</option>
+          <option>전라남도</option>
+          <option>경상북도</option>
+          <option>경상남도</option>
+          <option>제주특별자치도</option>
+          <option>해외 거주</option>
+        </select>
+      </div>
+
+      <div class="side-row">
+        <div class="field">
+          <label>본업 유무 <span class="req">*</span></label>
+          <div class="radio-group" id="jobGroup">
+            <label class="radio-pill" onclick="pick('job','있음',this)">
+              <input type="radio" name="본업유무" value="있음" required><span>✅ 있음</span>
+            </label>
+            <label class="radio-pill" onclick="pick('job','없음',this)">
+              <input type="radio" name="본업유무" value="없음"><span>❌ 없음</span>
+            </label>
+          </div>
+        </div>
+        <div class="field detail-col" id="jobDetail">
+          <label>직업을 적어주세요 <span class="req">*</span></label>
+          <input type="text" name="직업" placeholder="예) 직장인, 대학생, 자영업자 등">
+        </div>
+      </div>
+
+      <div class="side-row">
+        <div class="field">
+          <label>방송 경험 유무 <span class="req">*</span><br><small style="font-weight:400;color:#888;">(타 플랫폼 포함)</small></label>
+          <div class="radio-group" id="broadGroup">
+            <label class="radio-pill" onclick="pick('broad','있음',this)">
+              <input type="radio" name="방송경험유무" value="있음" required><span>✅ 있음</span>
+            </label>
+            <label class="radio-pill" onclick="pick('broad','없음',this)">
+              <input type="radio" name="방송경험유무" value="없음"><span>❌ 없음</span>
+            </label>
+          </div>
+        </div>
+        <div class="field detail-col" id="broadDetail">
+          <label>플랫폼 이름 &amp; 방송 기간 <span class="req">*</span></label>
+          <textarea name="플랫폼기간" placeholder="예) 유튜브 라이브 6개월&#10;인스타그램 1년&#10;아프리카TV 3개월"></textarea>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ───────────── 방송 계획 ───────────── -->
+    <div class="form-card">
+      <div class="section-label">📡 방송 계획</div>
+
+      <div class="field">
+        <label>주 방송 횟수 <span class="req">*</span></label>
+        <div class="radio-group" id="freqGroup">
+          <label class="radio-pill" onclick="pickFreq('주 1~2회', this)">
+            <input type="radio" name="주방송횟수" value="주 1~2회" required><span>주 1~2회</span>
+          </label>
+          <label class="radio-pill" onclick="pickFreq('주 3~4회', this)">
+            <input type="radio" name="주방송횟수" value="주 3~4회"><span>주 3~4회</span>
+          </label>
+          <label class="radio-pill" onclick="pickFreq('주 5회 이상', this)">
+            <input type="radio" name="주방송횟수" value="주 5회 이상"><span>주 5회 이상</span>
+          </label>
+          <label class="radio-pill" onclick="pickFreq('매일', this)">
+            <input type="radio" name="주방송횟수" value="매일"><span>매일</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>방송 시간대 <span class="req">*</span> <small style="font-weight:400;color:#888;">(복수 선택 가능)</small></label>
+        <div class="check-group" id="timeGroup">
+          <label class="check-pill" onclick="toggleTime(this, '오전(06~12시)')">
+            <input type="checkbox" name="방송시간대" value="오전(06~12시)"><span>🌅 오전 (06~12시)</span>
+          </label>
+          <label class="check-pill" onclick="toggleTime(this, '오후(12~18시)')">
+            <input type="checkbox" name="방송시간대" value="오후(12~18시)"><span>☀️ 오후 (12~18시)</span>
+          </label>
+          <label class="check-pill" onclick="toggleTime(this, '저녁(18~24시)')">
+            <input type="checkbox" name="방송시간대" value="저녁(18~24시)"><span>🌆 저녁 (18~24시)</span>
+          </label>
+          <label class="check-pill" onclick="toggleTime(this, '심야(00~06시)')">
+            <input type="checkbox" name="방송시간대" value="심야(00~06시)"><span>🌙 심야 (00~06시)</span>
+          </label>
+        </div>
+        <!-- 숨김 input에 선택 결과 모아서 전송 -->
+        <input type="hidden" name="방송시간대" id="timeHidden">
+      </div>
+
+    </div>
+
+    <!-- ───────────── 자기소개 ───────────── -->
+    <div class="form-card">
+      <div class="section-label">💬 자기소개 &amp; 콘텐츠 방향</div>
+
+      <div class="field">
+        <label>콘텐츠 방향성 / 본인 장점 <span class="req">*</span></label>
+        <textarea name="콘텐츠방향성" placeholder="예) 유머와 토크로 시청자와 소통을 잘해요 / 댄스·커버곡 등 퍼포먼스 위주 / 먹방·일상 브이로그 / 게임 라이브 등" style="min-height:90px;" required></textarea>
+      </div>
+
+      <div class="field">
+        <label>자기소개 / 전하고 싶은 말</label>
+        <textarea name="자기소개" placeholder="간단한 자기소개나 질문 사항을 자유롭게 작성해 주세요 :)" style="min-height:100px;"></textarea>
+      </div>
+
+      <div class="field">
+        <label>가입 신청 일시</label>
+        <input type="text" name="가입일시" id="joinDate" readonly>
+      </div>
+
+    </div>
+
+    <!-- ───────────── 동의 및 제출 ───────────── -->
+    <div class="form-card" style="border-radius:0 0 12px 12px;">
+      <div class="section-label">✅ 동의 및 제출</div>
+      <div class="agree-box">
+        수집 항목: 이름, 연락처, 생년월일, 성별, 카카오톡ID, 틱톡ID, 이메일, 주거지역, 본업 및 방송 경험 정보, 방송 계획, 콘텐츠 방향성<br>
+        수집 목적: 에이전시 서비스 제공 및 매니저 매칭<br>
+        보유 기간: 계약 종료 후 1년
+      </div>
+      <label class="agree-check">
+        <input type="checkbox" id="agreeChk" required>
+        개인정보 수집·이용에 동의합니다 <span class="req">*</span>
+      </label>
+      <button type="submit" class="submit-btn" id="submitBtn">🚀 &nbsp; 가입 신청하기</button>
+      <div class="error-msg" id="errMsg"></div>
+    </div>
+
+  </form>
+
+  <div id="success-screen">
+    <div class="icon">✅</div>
+    <h3>신청이 완료되었습니다!</h3>
+    <p><strong>담당 매니저가 24시간 이내 연락드리겠습니다.</strong><br><br>카카오톡 또는 전화로 연락드릴 예정이니 메시지를 확인해 주세요 :)</p>
+  </div>
+
+</div>
+
+<script>
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbw4w8VBLw56eWM1i8lwKPsRpaAUMtSj2SEt9d74B2WoA8vE4COsR58JF_3_cGhjgckl/exec';
+
+  // ── 가입 신청 일시 자동 세팅 ──
+  (function() {
+    var now = new Date();
+    var pad = function(n){ return n < 10 ? '0'+n : n; };
+    var str = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate())
+            + ' ' + pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+    document.getElementById('joinDate').value = str;
+  })();
+
+  // ── 라디오 pill (본업/방송경험) ──
+  function pick(type, val, el) {
+    var grpId = type === 'job' ? 'jobGroup' : 'broadGroup';
+    var detId = type === 'job' ? 'jobDetail' : 'broadDetail';
+    document.querySelectorAll('#' + grpId + ' .radio-pill').forEach(function(p) { p.classList.remove('on'); });
+    el.classList.add('on');
+    var det = document.getElementById(detId);
+    var inp = det.querySelector('input,textarea');
+    if (val === '있음') {
+      det.classList.add('show');
+      if (inp) inp.required = true;
+    } else {
+      det.classList.remove('show');
+      if (inp) { inp.required = false; inp.value = ''; }
+    }
+  }
+
+  // ── 라디오 pill (주 방송 횟수) ──
+  function pickFreq(val, el) {
+    document.querySelectorAll('#freqGroup .radio-pill').forEach(function(p) { p.classList.remove('on'); });
+    el.classList.add('on');
+  }
+
+  // ── 체크박스 pill (방송 시간대) ──
+  var selectedTimes = [];
+  function toggleTime(el, val) {
+    el.classList.toggle('on');
+    var idx = selectedTimes.indexOf(val);
+    if (idx === -1) { selectedTimes.push(val); }
+    else { selectedTimes.splice(idx, 1); }
+    document.getElementById('timeHidden').value = selectedTimes.join(', ');
+  }
+
+  // ── 폼 제출 ──
+  document.getElementById('hostForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // 방송 시간대 최소 1개 검증
+    if (selectedTimes.length === 0) {
+      alert('방송 시간대를 최소 1개 이상 선택해 주세요.'); return;
+    }
+
+    if (!document.getElementById('agreeChk').checked) {
+      alert('개인정보 수집·이용에 동의해 주세요.'); return;
+    }
+
+    var btn = document.getElementById('submitBtn');
+    var err = document.getElementById('errMsg');
+    err.style.display = 'none';
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> 제출 중...';
+
+    var fd = new FormData(e.target);
+    var data = {};
+    fd.forEach(function(v, k) {
+      if (k === '방송시간대') return; // hidden으로 대체
+      data[k] = v;
+    });
+    // 방송 시간대는 hidden input 값 사용
+    data['방송시간대'] = document.getElementById('timeHidden').value;
+
+    fetch(GAS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(data)
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(json) {
+      if (json.result === 'ok') {
+        showSuccess();
+      } else {
+        throw new Error(json.message || '오류가 발생했습니다.');
+      }
+    })
+    .catch(function(ex) {
+      if (ex.message === 'Failed to fetch' || ex.name === 'TypeError') {
+        showSuccess();
+      } else {
+        err.textContent = '오류: ' + ex.message;
+        err.style.display = 'block';
+        btn.disabled = false;
+        btn.innerHTML = '🚀 &nbsp; 가입 신청하기';
+      }
+    });
+  });
+
+  function showSuccess() {
+    document.getElementById('hostForm').style.display = 'none';
+    document.getElementById('success-screen').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
