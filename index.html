@@ -72,6 +72,17 @@
   .detail-col { display: none; }
   .detail-col.show { display: block; }
   .field input[readonly] { background: #f0f4f8; color: #666; cursor: default; border-color: #e0e0e0; }
+  .referral-box {
+    background: #fffbf0; border: 1.5px solid #f0d080; border-radius: 8px;
+    padding: 14px 16px; margin-bottom: 18px;
+  }
+  .referral-box label { font-size: 14px; font-weight: 600; color: #8a6200; margin-bottom: 7px; display: block; }
+  .referral-box input {
+    width: 100%; padding: 11px 14px; border: 1.5px solid #f0d080; border-radius: 8px;
+    font-size: 14px; font-family: inherit; color: #333; background: #fffef8; outline: none;
+    transition: border-color 0.2s;
+  }
+  .referral-box input:focus { border-color: #C9A84C; box-shadow: 0 0 0 3px rgba(201,168,76,0.15); }
   .agree-box {
     background: #f8f9fa; border: 1.5px solid #e0e0e0; border-radius: 8px;
     padding: 14px 16px; font-size: 13px; color: #555; line-height: 1.8; margin-bottom: 16px;
@@ -127,44 +138,55 @@
     <p class="desc">지오엔터테인먼트 틱톡 라이브 에이전시에 오신 것을 환영합니다!<br>아래 정보를 입력해 주시면 담당 매니저가 24시간 이내 연락드리겠습니다.</p>
   </div>
   <form id="hostForm">
+
+    <!-- ───────────── 기본 정보 ───────────── -->
     <div class="form-card">
       <div class="section-label">📋 기본 정보</div>
+
+      <!-- 에이전트 이름 (추천인) -->
+      <div class="referral-box">
+        <label>🤝 에이전트 이름 (추천인)</label>
+        <input type="text" name="에이전트추천인" placeholder="추천한 에이전트 이름을 입력해 주세요 (없으면 비워두세요)">
+      </div>
+
+      <!-- 이름 / 성별 -->
       <div class="row2">
         <div class="field"><label>이름 <span class="req">*</span></label><input type="text" name="이름" placeholder="홍길동" required></div>
-        <div class="field"><label>닉네임 (활동명) <span class="req">*</span></label><input type="text" name="닉네임" placeholder="라이브킹" required></div>
-      </div>
-      <div class="row2">
-        <div class="field"><label>생년월일 <span class="req">*</span></label><input type="date" name="생년월일" required></div>
         <div class="field">
           <label>성별 <span class="req">*</span></label>
-          <select name="성별" required>
-            <option value="">선택</option>
-            <option>남성</option>
-            <option>여성</option>
-            <option>기타</option>
-          </select>
+          <div class="radio-group" id="genderGroup">
+            <label class="radio-pill" onclick="pickGender('남성', this)">
+              <input type="radio" name="성별" value="남성" required><span>남성</span>
+            </label>
+            <label class="radio-pill" onclick="pickGender('여성', this)">
+              <input type="radio" name="성별" value="여성"><span>여성</span>
+            </label>
+            <label class="radio-pill" onclick="pickGender('기타', this)">
+              <input type="radio" name="성별" value="기타"><span>기타</span>
+            </label>
+          </div>
         </div>
       </div>
+
+      <!-- 생년월일 / 전화번호 -->
       <div class="row2">
+        <div class="field"><label>생년월일 <span class="req">*</span></label><input type="date" name="생년월일" required></div>
         <div class="field"><label>전화번호 <span class="req">*</span></label><input type="tel" name="전화번호" placeholder="010-0000-0000" required></div>
-        <div class="field"><label>카카오톡 ID <span class="req">*</span></label><input type="text" name="카카오톡ID" placeholder="kakao_id" required></div>
       </div>
+
+      <!-- 틱톡 ID / 닉네임 -->
       <div class="row2">
-        <div class="field"><label>틱톡 ID <span class="req">*</span></label><input type="text" name="틱톡ID" placeholder="@tiktok_id" required></div>
-        <div class="field"><label>이메일</label><input type="email" name="이메일" placeholder="example@email.com"></div>
+        <div class="field"><label>틱톡 ID <span class="req">*</span></label><input type="text" name="틱톡ID" placeholder="@juneho95" required></div>
+        <div class="field"><label>닉네임 (활동명) <span class="req">*</span></label><input type="text" name="닉네임" placeholder="🐻‍❄️Junho🐻‍❄️" required></div>
       </div>
+
+      <!-- 거주 지역 (직접 입력) -->
       <div class="field">
-        <label>주거 지역 <span class="req">*</span></label>
-        <select name="주거지역" required>
-          <option value="">거주 지역을 선택해 주세요</option>
-          <option>서울특별시</option><option>경기도</option><option>인천광역시</option>
-          <option>부산광역시</option><option>대구광역시</option><option>광주광역시</option>
-          <option>대전광역시</option><option>울산광역시</option><option>세종특별자치시</option>
-          <option>강원도</option><option>충청북도</option><option>충청남도</option>
-          <option>전라북도</option><option>전라남도</option><option>경상북도</option>
-          <option>경상남도</option><option>제주특별자치도</option><option>해외 거주</option>
-        </select>
+        <label>거주 지역 <span class="req">*</span></label>
+        <input type="text" name="주거지역" placeholder="예) 서울 강남구, 경기 수원시 등" required>
       </div>
+
+      <!-- 본업 유무 -->
       <div class="side-row">
         <div class="field">
           <label>본업 유무 <span class="req">*</span></label>
@@ -182,6 +204,8 @@
           <input type="text" name="직업" placeholder="예) 직장인, 대학생, 자영업자 등">
         </div>
       </div>
+
+      <!-- 방송 경험 유무 -->
       <div class="side-row">
         <div class="field">
           <label>방송 경험 유무 <span class="req">*</span><br><small style="font-weight:400;color:#888;">(타 플랫폼 포함)</small></label>
@@ -200,8 +224,11 @@
         </div>
       </div>
     </div>
+
+    <!-- ───────────── 방송 계획 ───────────── -->
     <div class="form-card">
       <div class="section-label">📡 방송 계획</div>
+
       <div class="field">
         <label>주 방송 횟수 <span class="req">*</span></label>
         <div class="radio-group" id="freqGroup">
@@ -219,6 +246,7 @@
           </label>
         </div>
       </div>
+
       <div class="field">
         <label>방송 시간대 <span class="req">*</span> <small style="font-weight:400;color:#888;">(복수 선택 가능)</small></label>
         <div class="check-group" id="timeGroup">
@@ -238,25 +266,32 @@
         <input type="hidden" name="방송시간대" id="timeHidden">
       </div>
     </div>
+
+    <!-- ───────────── 콘텐츠 방향 & 자기소개 ───────────── -->
     <div class="form-card">
-      <div class="section-label">💬 자기소개 &amp; 콘텐츠 방향</div>
+      <div class="section-label">💬 콘텐츠 방향 &amp; 자기소개</div>
+
       <div class="field">
         <label>콘텐츠 방향성 / 본인 장점 <span class="req">*</span></label>
         <textarea name="콘텐츠방향성" placeholder="예) 유머와 토크로 시청자와 소통을 잘해요 / 댄스·커버곡 등 퍼포먼스 위주 / 먹방·일상 브이로그 / 게임 라이브 등" style="min-height:90px;" required></textarea>
       </div>
+
       <div class="field">
         <label>자기소개 / 전하고 싶은 말</label>
         <textarea name="자기소개" placeholder="간단한 자기소개나 질문 사항을 자유롭게 작성해 주세요 :)" style="min-height:100px;"></textarea>
       </div>
+
       <div class="field">
         <label>가입 신청 일시</label>
         <input type="text" name="가입일시" id="joinDate" readonly>
       </div>
     </div>
+
+    <!-- ───────────── 동의 및 제출 ───────────── -->
     <div class="form-card" style="border-radius:0 0 12px 12px;">
       <div class="section-label">✅ 동의 및 제출</div>
       <div class="agree-box">
-        수집 항목: 이름, 연락처, 생년월일, 성별, 카카오톡ID, 틱톡ID, 이메일, 주거지역, 본업 및 방송 경험 정보, 방송 계획, 콘텐츠 방향성<br>
+        수집 항목: 이름, 생년월일, 성별, 전화번호, 틱톡ID, 닉네임, 거주지역, 추천인, 본업 및 방송 경험 정보, 방송 계획, 콘텐츠 방향성<br>
         수집 목적: 에이전시 서비스 제공 및 매니저 매칭<br>
         보유 기간: 계약 종료 후 1년
       </div>
@@ -267,15 +302,19 @@
       <button type="submit" class="submit-btn" id="submitBtn">🚀 &nbsp; 가입 신청하기</button>
       <div class="error-msg" id="errMsg"></div>
     </div>
+
   </form>
+
   <div id="success-screen">
     <div class="icon">✅</div>
     <h3>신청이 완료되었습니다!</h3>
-    <p><strong>담당 매니저가 24시간 이내 연락드리겠습니다.</strong><br><br>카카오톡 또는 전화로 연락드릴 예정이니 메시지를 확인해 주세요 :)</p>
+    <p><strong>담당 매니저가 24시간 이내 연락드리겠습니다.</strong><br><br>전화 또는 문자로 연락드릴 예정이니 확인해 주세요 :)</p>
   </div>
 </div>
+
 <script>
   var GAS_URL = 'https://script.google.com/macros/s/AKfycbw4w8VBLw56eWM1i8lwKPsRpaAUMtSj2SEt9d74B2WoA8vE4COsR58JF_3_cGhjgckl/exec';
+
   (function() {
     var now = new Date();
     var pad = function(n){ return n < 10 ? '0'+n : n; };
@@ -283,6 +322,12 @@
             + ' ' + pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
     document.getElementById('joinDate').value = str;
   })();
+
+  function pickGender(val, el) {
+    document.querySelectorAll('#genderGroup .radio-pill').forEach(function(p) { p.classList.remove('on'); });
+    el.classList.add('on');
+  }
+
   function pick(type, val, el) {
     var grpId = type === 'job' ? 'jobGroup' : 'broadGroup';
     var detId = type === 'job' ? 'jobDetail' : 'broadDetail';
@@ -298,11 +343,12 @@
       if (inp) { inp.required = false; inp.value = ''; }
     }
   }
+
   function pickFreq(val, el) {
     document.querySelectorAll('#freqGroup .radio-pill').forEach(function(p) { p.classList.remove('on'); });
     el.classList.add('on');
   }
-  // [버그수정] 라벨 클릭 시 onclick 이중 발화로 toggle이 상쇄되던 문제 수정
+
   var selectedTimes = [];
   function toggleTime(el, val, event) {
     event.preventDefault();
@@ -314,6 +360,7 @@
     else { selectedTimes.splice(idx, 1); }
     document.getElementById('timeHidden').value = selectedTimes.join(', ');
   }
+
   document.getElementById('hostForm').addEventListener('submit', function(e) {
     e.preventDefault();
     if (selectedTimes.length === 0) {
@@ -354,6 +401,7 @@
       }
     });
   });
+
   function showSuccess() {
     document.getElementById('hostForm').style.display = 'none';
     document.getElementById('success-screen').style.display = 'block';
