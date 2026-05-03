@@ -6,122 +6,60 @@
 <title>지오ENT 호스트 가입 신청</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-    background: linear-gradient(135deg, #1E3A5F 0%, #2E75B6 100%);
-    min-height: 100vh; padding: 40px 16px;
-  }
+  body { font-family: 'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background: linear-gradient(135deg,#1E3A5F 0%,#2E75B6 100%); min-height: 100vh; padding: 40px 16px; }
   .container { max-width: 640px; margin: 0 auto; }
-  .header-card {
-    background: white; border-radius: 12px 12px 0 0;
-    border-top: 8px solid #C9A84C; padding: 32px 32px 24px; margin-bottom: 2px;
-  }
+  .header-card { background: white; border-radius: 12px 12px 0 0; border-top: 8px solid #C9A84C; padding: 32px 32px 24px; margin-bottom: 2px; }
   .logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-  .logo-icon {
-    width: 48px; height: 48px; background: #1E3A5F; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center; font-size: 22px;
-  }
+  .logo-icon { width: 48px; height: 48px; background: #1E3A5F; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
   .logo-text h1 { font-size: 20px; font-weight: 700; color: #1E3A5F; }
   .logo-text p { font-size: 13px; color: #888; margin-top: 2px; }
   .header-card h2 { font-size: 24px; font-weight: 700; color: #1E3A5F; margin-bottom: 8px; }
   .header-card .desc { font-size: 14px; color: #555; line-height: 1.7; }
   .form-card { background: white; padding: 28px 32px; margin-bottom: 2px; }
   .form-card:last-of-type { border-radius: 0 0 12px 12px; }
-  .section-label {
-    font-size: 12px; font-weight: 600; color: #2E75B6; letter-spacing: 0.5px;
-    margin-bottom: 18px; padding-bottom: 8px; border-bottom: 2px solid #D5E8F0;
-  }
+  .section-label { font-size: 12px; font-weight: 600; color: #2E75B6; letter-spacing: 0.5px; margin-bottom: 18px; padding-bottom: 8px; border-bottom: 2px solid #D5E8F0; }
   .field { margin-bottom: 18px; }
   .field label { display: block; font-size: 14px; font-weight: 600; color: #1E3A5F; margin-bottom: 7px; }
   .req { color: #e53e3e; margin-left: 3px; }
-  .field input, .field select, .field textarea {
-    width: 100%; padding: 11px 14px; border: 1.5px solid #ddd; border-radius: 8px;
-    font-size: 14px; font-family: inherit; color: #333; background: #fafafa;
-    transition: border-color 0.2s, box-shadow 0.2s; outline: none;
-  }
-  .field input:focus, .field select:focus, .field textarea:focus {
-    border-color: #2E75B6; box-shadow: 0 0 0 3px rgba(46,117,182,0.12); background: white;
-  }
+  .field input, .field select, .field textarea { width: 100%; padding: 11px 14px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; font-family: inherit; color: #333; background: #fafafa; transition: border-color 0.2s,box-shadow 0.2s; outline: none; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: #2E75B6; box-shadow: 0 0 0 3px rgba(46,117,182,0.12); background: white; }
   .field textarea { resize: vertical; min-height: 80px; }
   .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .radio-group { display: flex; gap: 10px; flex-wrap: wrap; }
-  .radio-pill {
-    display: flex; align-items: center; gap: 7px;
-    background: #f5f7fa; border: 1.5px solid #ddd; border-radius: 20px;
-    padding: 8px 18px; cursor: pointer; font-size: 14px; font-weight: 600;
-    color: #444; transition: all 0.15s; user-select: none;
-  }
-  .radio-pill input[type="radio"] { display: none; }
+  .radio-pill { display: flex; align-items: center; gap: 7px; background: #f5f7fa; border: 1.5px solid #ddd; border-radius: 20px; padding: 8px 18px; cursor: pointer; font-size: 14px; font-weight: 600; color: #444; transition: all 0.15s; user-select: none; }
+  .radio-pill input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none; }
   .radio-pill:hover { border-color: #2E75B6; background: #eef4fb; }
   .radio-pill.on { border-color: #2E75B6; background: #2E75B6; color: white; }
   .check-group { display: flex; gap: 10px; flex-wrap: wrap; }
-  .check-pill {
-    display: flex; align-items: center; gap: 7px;
-    background: #f5f7fa; border: 1.5px solid #ddd; border-radius: 20px;
-    padding: 8px 18px; cursor: pointer; font-size: 14px; font-weight: 600;
-    color: #444; transition: all 0.15s; user-select: none;
-  }
-  .check-pill input[type="checkbox"] { display: none; }
+  .check-pill { display: flex; align-items: center; gap: 7px; background: #f5f7fa; border: 1.5px solid #ddd; border-radius: 20px; padding: 8px 18px; cursor: pointer; font-size: 14px; font-weight: 600; color: #444; transition: all 0.15s; user-select: none; }
+  .check-pill input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none; }
   .check-pill:hover { border-color: #2E75B6; background: #eef4fb; }
   .check-pill.on { border-color: #2E75B6; background: #2E75B6; color: white; }
-  .side-row {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
-    align-items: start; margin-bottom: 18px;
-  }
+  .side-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; margin-bottom: 18px; }
   .side-row .field { margin-bottom: 0; }
   .detail-col { display: none; }
   .detail-col.show { display: block; }
   .field input[readonly] { background: #f0f4f8; color: #666; cursor: default; border-color: #e0e0e0; }
-  .referral-box {
-    background: #fffbf0; border: 1.5px solid #f0d080; border-radius: 8px;
-    padding: 14px 16px; margin-bottom: 18px;
-  }
+  .referral-box { background: #fffbf0; border: 1.5px solid #f0d080; border-radius: 8px; padding: 14px 16px; margin-bottom: 18px; }
   .referral-box label { font-size: 14px; font-weight: 600; color: #8a6200; margin-bottom: 7px; display: block; }
-  .referral-box input {
-    width: 100%; padding: 11px 14px; border: 1.5px solid #f0d080; border-radius: 8px;
-    font-size: 14px; font-family: inherit; color: #333; background: #fffef8; outline: none;
-    transition: border-color 0.2s;
-  }
+  .referral-box input { width: 100%; padding: 11px 14px; border: 1.5px solid #f0d080; border-radius: 8px; font-size: 14px; font-family: inherit; color: #333; background: #fffef8; outline: none; transition: border-color 0.2s; }
   .referral-box input:focus { border-color: #C9A84C; box-shadow: 0 0 0 3px rgba(201,168,76,0.15); }
-  .agree-box {
-    background: #f8f9fa; border: 1.5px solid #e0e0e0; border-radius: 8px;
-    padding: 14px 16px; font-size: 13px; color: #555; line-height: 1.8; margin-bottom: 16px;
-  }
-  .agree-check {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 14px; font-weight: 600; color: #333; cursor: pointer; margin-bottom: 20px;
-  }
+  .field-error { border-color: #e53e3e !important; }
+  .group-error { outline: 2px solid #e53e3e; border-radius: 8px; padding: 4px; }
+  .agree-box { background: #f8f9fa; border: 1.5px solid #e0e0e0; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #555; line-height: 1.8; margin-bottom: 16px; }
+  .agree-check { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #333; cursor: pointer; margin-bottom: 20px; }
   .agree-check input { width: 18px; height: 18px; cursor: pointer; }
-  .submit-btn {
-    width: 100%; padding: 16px;
-    background: linear-gradient(135deg, #1E3A5F, #2E75B6);
-    color: white; border: none; border-radius: 10px;
-    font-size: 16px; font-weight: 700; font-family: inherit;
-    cursor: pointer; letter-spacing: 0.5px; transition: opacity 0.2s;
-  }
+  .submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg,#1E3A5F,#2E75B6); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; font-family: inherit; cursor: pointer; letter-spacing: 0.5px; transition: opacity 0.2s; }
   .submit-btn:hover { opacity: 0.9; }
   .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-  .spinner {
-    display: inline-block; width: 16px; height: 16px;
-    border: 2px solid rgba(255,255,255,0.4); border-top-color: white;
-    border-radius: 50%; animation: spin 0.7s linear infinite;
-    margin-right: 8px; vertical-align: middle;
-  }
+  .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.4); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; margin-right: 8px; vertical-align: middle; }
   @keyframes spin { to { transform: rotate(360deg); } }
-  .error-msg {
-    background: #fff5f5; border: 1px solid #fca5a5; border-radius: 8px;
-    padding: 12px; font-size: 13px; color: #c0392b; margin-top: 10px; display: none;
-  }
-  #success-screen {
-    display: none; text-align: center; padding: 60px 32px; background: white; border-radius: 12px;
-  }
+  .error-msg { background: #fff5f5; border: 1px solid #fca5a5; border-radius: 8px; padding: 12px; font-size: 13px; color: #c0392b; margin-top: 10px; display: none; }
+  #success-screen { display: none; text-align: center; padding: 60px 32px; background: white; border-radius: 12px; }
   #success-screen .icon { font-size: 48px; margin-bottom: 20px; }
   #success-screen h3 { font-size: 22px; font-weight: 700; color: #1E3A5F; margin-bottom: 10px; }
   #success-screen p { font-size: 14px; color: #666; line-height: 1.7; }
-  @media (max-width: 500px) {
-    .row2, .side-row { grid-template-columns: 1fr; }
-    .header-card, .form-card { padding: 20px 18px; }
-  }
+  @media (max-width: 500px) { .row2,.side-row { grid-template-columns: 1fr; } .header-card,.form-card { padding: 20px 18px; } }
 </style>
 </head>
 <body>
@@ -129,165 +67,93 @@
   <div class="header-card">
     <div class="logo-row">
       <div class="logo-icon">🎬</div>
-      <div class="logo-text">
-        <h1>지오엔터테인먼트</h1>
-        <p>Z.O Entertainment · TikTok Live Agency</p>
-      </div>
+      <div class="logo-text"><h1>지오엔터테인먼트</h1><p>Z.O Entertainment · TikTok Live Agency</p></div>
     </div>
     <h2>틱톡 라이브 호스트 가입 신청</h2>
     <p class="desc">지오엔터테인먼트 틱톡 라이브 에이전시에 오신 것을 환영합니다!<br>아래 정보를 입력해 주시면 담당 매니저가 24시간 이내 연락드리겠습니다.</p>
   </div>
-  <form id="hostForm">
-
-    <!-- ───────────── 기본 정보 ───────────── -->
+  <form id="hostForm" novalidate>
     <div class="form-card">
       <div class="section-label">📋 기본 정보</div>
-
-      <!-- 에이전트 이름 (추천인) -->
       <div class="referral-box">
         <label>🤝 에이전트 이름 (추천인)</label>
         <input type="text" name="에이전트추천인" placeholder="추천한 에이전트 이름을 입력해 주세요 (없으면 비워두세요)">
       </div>
-
-      <!-- 이름 / 성별 -->
       <div class="row2">
-        <div class="field"><label>이름 <span class="req">*</span></label><input type="text" name="이름" placeholder="홍길동" required></div>
+        <div class="field"><label>이름 <span class="req">*</span></label><input type="text" id="f_name" name="이름" placeholder="홍길동"></div>
         <div class="field">
           <label>성별 <span class="req">*</span></label>
           <div class="radio-group" id="genderGroup">
-            <label class="radio-pill" onclick="pickGender('남성', this)">
-              <input type="radio" name="성별" value="남성" required><span>남성</span>
-            </label>
-            <label class="radio-pill" onclick="pickGender('여성', this)">
-              <input type="radio" name="성별" value="여성"><span>여성</span>
-            </label>
-            <label class="radio-pill" onclick="pickGender('기타', this)">
-              <input type="radio" name="성별" value="기타"><span>기타</span>
-            </label>
+            <label class="radio-pill" onclick="pickRadio('gender','남성',this)"><input type="radio" name="성별" value="남성"><span>남성</span></label>
+            <label class="radio-pill" onclick="pickRadio('gender','여성',this)"><input type="radio" name="성별" value="여성"><span>여성</span></label>
+            <label class="radio-pill" onclick="pickRadio('gender','기타',this)"><input type="radio" name="성별" value="기타"><span>기타</span></label>
           </div>
         </div>
       </div>
-
-      <!-- 생년월일 / 전화번호 -->
       <div class="row2">
-        <div class="field"><label>생년월일 <span class="req">*</span></label><input type="date" name="생년월일" required></div>
-        <div class="field"><label>전화번호 <span class="req">*</span></label><input type="tel" name="전화번호" placeholder="010-0000-0000" required></div>
+        <div class="field"><label>생년월일 <span class="req">*</span></label><input type="date" id="f_birth" name="생년월일"></div>
+        <div class="field"><label>전화번호 <span class="req">*</span></label><input type="tel" id="f_phone" name="전화번호" placeholder="010-0000-0000"></div>
       </div>
-
-      <!-- 틱톡 ID / 닉네임 -->
       <div class="row2">
-        <div class="field"><label>틱톡 ID <span class="req">*</span></label><input type="text" name="틱톡ID" placeholder="@juneho95" required></div>
-        <div class="field"><label>닉네임 (활동명) <span class="req">*</span></label><input type="text" name="닉네임" placeholder="🐻‍❄️Junho🐻‍❄️" required></div>
+        <div class="field"><label>틱톡 ID <span class="req">*</span></label><input type="text" id="f_tiktok" name="틱톡ID" placeholder="@juneho95"></div>
+        <div class="field"><label>닉네임 (활동명) <span class="req">*</span></label><input type="text" id="f_nick" name="닉네임" placeholder="🐻‍❄️Junho🐻‍❄️"></div>
       </div>
-
-      <!-- 거주 지역 (직접 입력) -->
-      <div class="field">
-        <label>거주 지역 <span class="req">*</span></label>
-        <input type="text" name="주거지역" placeholder="예) 서울 강남구, 경기 수원시 등" required>
-      </div>
-
-      <!-- 본업 유무 -->
+      <div class="field"><label>거주 지역 <span class="req">*</span></label><input type="text" id="f_region" name="주거지역" placeholder="예) 서울 강남구, 경기 수원시 등"></div>
       <div class="side-row">
         <div class="field">
           <label>본업 유무 <span class="req">*</span></label>
           <div class="radio-group" id="jobGroup">
-            <label class="radio-pill" onclick="pick('job','있음',this)">
-              <input type="radio" name="본업유무" value="있음" required><span>✅ 있음</span>
-            </label>
-            <label class="radio-pill" onclick="pick('job','없음',this)">
-              <input type="radio" name="본업유무" value="없음"><span>❌ 없음</span>
-            </label>
+            <label class="radio-pill" onclick="pickRadio('job','있음',this)"><input type="radio" name="본업유무" value="있음"><span>✅ 있음</span></label>
+            <label class="radio-pill" onclick="pickRadio('job','없음',this)"><input type="radio" name="본업유무" value="없음"><span>❌ 없음</span></label>
           </div>
         </div>
         <div class="field detail-col" id="jobDetail">
-          <label>직업을 적어주세요 <span class="req">*</span></label>
-          <input type="text" name="직업" placeholder="예) 직장인, 대학생, 자영업자 등">
+          <label>직업을 적어주세요</label>
+          <input type="text" id="f_job" name="직업" placeholder="예) 직장인, 대학생, 자영업자 등">
         </div>
       </div>
-
-      <!-- 방송 경험 유무 -->
       <div class="side-row">
         <div class="field">
           <label>방송 경험 유무 <span class="req">*</span><br><small style="font-weight:400;color:#888;">(타 플랫폼 포함)</small></label>
           <div class="radio-group" id="broadGroup">
-            <label class="radio-pill" onclick="pick('broad','있음',this)">
-              <input type="radio" name="방송경험유무" value="있음" required><span>✅ 있음</span>
-            </label>
-            <label class="radio-pill" onclick="pick('broad','없음',this)">
-              <input type="radio" name="방송경험유무" value="없음"><span>❌ 없음</span>
-            </label>
+            <label class="radio-pill" onclick="pickRadio('broad','있음',this)"><input type="radio" name="방송경험유무" value="있음"><span>✅ 있음</span></label>
+            <label class="radio-pill" onclick="pickRadio('broad','없음',this)"><input type="radio" name="방송경험유무" value="없음"><span>❌ 없음</span></label>
           </div>
         </div>
         <div class="field detail-col" id="broadDetail">
-          <label>플랫폼 이름 &amp; 방송 기간 <span class="req">*</span></label>
-          <textarea name="플랫폼기간" placeholder="예) 유튜브 라이브 6개월&#10;인스타그램 1년&#10;아프리카TV 3개월"></textarea>
+          <label>플랫폼 이름 &amp; 방송 기간</label>
+          <textarea id="f_platform" name="플랫폼기간" placeholder="예) 유튜브 라이브 6개월&#10;인스타그램 1년&#10;아프리카TV 3개월"></textarea>
         </div>
       </div>
     </div>
-
-    <!-- ───────────── 방송 계획 ───────────── -->
     <div class="form-card">
       <div class="section-label">📡 방송 계획</div>
-
       <div class="field">
         <label>주 방송 횟수 <span class="req">*</span></label>
         <div class="radio-group" id="freqGroup">
-          <label class="radio-pill" onclick="pickFreq('주 1~2회', this)">
-            <input type="radio" name="주방송횟수" value="주 1~2회" required><span>주 1~2회</span>
-          </label>
-          <label class="radio-pill" onclick="pickFreq('주 3~4회', this)">
-            <input type="radio" name="주방송횟수" value="주 3~4회"><span>주 3~4회</span>
-          </label>
-          <label class="radio-pill" onclick="pickFreq('주 5회 이상', this)">
-            <input type="radio" name="주방송횟수" value="주 5회 이상"><span>주 5회 이상</span>
-          </label>
-          <label class="radio-pill" onclick="pickFreq('매일', this)">
-            <input type="radio" name="주방송횟수" value="매일"><span>매일</span>
-          </label>
+          <label class="radio-pill" onclick="pickRadio('freq','주 1~2회',this)"><input type="radio" name="주방송횟수" value="주 1~2회"><span>주 1~2회</span></label>
+          <label class="radio-pill" onclick="pickRadio('freq','주 3~4회',this)"><input type="radio" name="주방송횟수" value="주 3~4회"><span>주 3~4회</span></label>
+          <label class="radio-pill" onclick="pickRadio('freq','주 5회 이상',this)"><input type="radio" name="주방송횟수" value="주 5회 이상"><span>주 5회 이상</span></label>
+          <label class="radio-pill" onclick="pickRadio('freq','매일',this)"><input type="radio" name="주방송횟수" value="매일"><span>매일</span></label>
         </div>
       </div>
-
       <div class="field">
         <label>방송 시간대 <span class="req">*</span> <small style="font-weight:400;color:#888;">(복수 선택 가능)</small></label>
         <div class="check-group" id="timeGroup">
-          <label class="check-pill" onclick="toggleTime(this, '오전(06~12시)', event)">
-            <input type="checkbox" name="방송시간대" value="오전(06~12시)"><span>🌅 오전 (06~12시)</span>
-          </label>
-          <label class="check-pill" onclick="toggleTime(this, '오후(12~18시)', event)">
-            <input type="checkbox" name="방송시간대" value="오후(12~18시)"><span>☀️ 오후 (12~18시)</span>
-          </label>
-          <label class="check-pill" onclick="toggleTime(this, '저녁(18~24시)', event)">
-            <input type="checkbox" name="방송시간대" value="저녁(18~24시)"><span>🌆 저녁 (18~24시)</span>
-          </label>
-          <label class="check-pill" onclick="toggleTime(this, '심야(00~06시)', event)">
-            <input type="checkbox" name="방송시간대" value="심야(00~06시)"><span>🌙 심야 (00~06시)</span>
-          </label>
+          <label class="check-pill" onclick="toggleTime(this,'오전(06~12시)',event)"><input type="checkbox" name="방송시간대" value="오전(06~12시)"><span>🌅 오전 (06~12시)</span></label>
+          <label class="check-pill" onclick="toggleTime(this,'오후(12~18시)',event)"><input type="checkbox" name="방송시간대" value="오후(12~18시)"><span>☀️ 오후 (12~18시)</span></label>
+          <label class="check-pill" onclick="toggleTime(this,'저녁(18~24시)',event)"><input type="checkbox" name="방송시간대" value="저녁(18~24시)"><span>🌆 저녁 (18~24시)</span></label>
+          <label class="check-pill" onclick="toggleTime(this,'심야(00~06시)',event)"><input type="checkbox" name="방송시간대" value="심야(00~06시)"><span>🌙 심야 (00~06시)</span></label>
         </div>
         <input type="hidden" name="방송시간대" id="timeHidden">
       </div>
     </div>
-
-    <!-- ───────────── 콘텐츠 방향 & 자기소개 ───────────── -->
     <div class="form-card">
       <div class="section-label">💬 콘텐츠 방향 &amp; 자기소개</div>
-
-      <div class="field">
-        <label>콘텐츠 방향성 / 본인 장점 <span class="req">*</span></label>
-        <textarea name="콘텐츠방향성" placeholder="예) 유머와 토크로 시청자와 소통을 잘해요 / 댄스·커버곡 등 퍼포먼스 위주 / 먹방·일상 브이로그 / 게임 라이브 등" style="min-height:90px;" required></textarea>
-      </div>
-
-      <div class="field">
-        <label>자기소개 / 전하고 싶은 말</label>
-        <textarea name="자기소개" placeholder="간단한 자기소개나 질문 사항을 자유롭게 작성해 주세요 :)" style="min-height:100px;"></textarea>
-      </div>
-
-      <div class="field">
-        <label>가입 신청 일시</label>
-        <input type="text" name="가입일시" id="joinDate" readonly>
-      </div>
+      <div class="field"><label>콘텐츠 방향성 / 본인 장점 <span class="req">*</span></label><textarea id="f_content" name="콘텐츠방향성" placeholder="예) 유머와 토크로 시청자와 소통을 잘해요 / 댄스·커버곡 등 퍼포먼스 위주 / 먹방·일상 브이로그 / 게임 라이브 등" style="min-height:90px;"></textarea></div>
+      <div class="field"><label>자기소개 / 전하고 싶은 말</label><textarea name="자기소개" placeholder="간단한 자기소개나 질문 사항을 자유롭게 작성해 주세요 :)" style="min-height:100px;"></textarea></div>
+      <div class="field"><label>가입 신청 일시</label><input type="text" name="가입일시" id="joinDate" readonly></div>
     </div>
-
-    <!-- ───────────── 동의 및 제출 ───────────── -->
     <div class="form-card" style="border-radius:0 0 12px 12px;">
       <div class="section-label">✅ 동의 및 제출</div>
       <div class="agree-box">
@@ -295,117 +161,125 @@
         수집 목적: 에이전시 서비스 제공 및 매니저 매칭<br>
         보유 기간: 계약 종료 후 1년
       </div>
-      <label class="agree-check">
-        <input type="checkbox" id="agreeChk" required>
-        개인정보 수집·이용에 동의합니다 <span class="req">*</span>
-      </label>
+      <label class="agree-check"><input type="checkbox" id="agreeChk"> 개인정보 수집·이용에 동의합니다 <span class="req">*</span></label>
       <button type="submit" class="submit-btn" id="submitBtn">🚀 &nbsp; 가입 신청하기</button>
       <div class="error-msg" id="errMsg"></div>
     </div>
-
   </form>
-
   <div id="success-screen">
     <div class="icon">✅</div>
     <h3>신청이 완료되었습니다!</h3>
     <p><strong>담당 매니저가 24시간 이내 연락드리겠습니다.</strong><br><br>전화 또는 문자로 연락드릴 예정이니 확인해 주세요 :)</p>
   </div>
 </div>
-
 <script>
   var GAS_URL = 'https://script.google.com/macros/s/AKfycbw4w8VBLw56eWM1i8lwKPsRpaAUMtSj2SEt9d74B2WoA8vE4COsR58JF_3_cGhjgckl/exec';
+  var radioState = { gender: '', job: '', broad: '', freq: '' };
+  var selectedTimes = [];
 
-  (function() {
-    var now = new Date();
-    var pad = function(n){ return n < 10 ? '0'+n : n; };
-    var str = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate())
-            + ' ' + pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
-    document.getElementById('joinDate').value = str;
+  (function(){
+    var now = new Date(), pad = function(n){return n<10?'0'+n:n;};
+    document.getElementById('joinDate').value = now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate())+' '+pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
   })();
 
-  function pickGender(val, el) {
-    document.querySelectorAll('#genderGroup .radio-pill').forEach(function(p) { p.classList.remove('on'); });
+  // 통합 라디오 pill 핸들러 (required 없이 JS로 추적)
+  function pickRadio(type, val, el) {
+    var groupMap = { gender:'genderGroup', job:'jobGroup', broad:'broadGroup', freq:'freqGroup' };
+    var grpId = groupMap[type];
+    document.querySelectorAll('#'+grpId+' .radio-pill').forEach(function(p){p.classList.remove('on');});
     el.classList.add('on');
-  }
-
-  function pick(type, val, el) {
-    var grpId = type === 'job' ? 'jobGroup' : 'broadGroup';
-    var detId = type === 'job' ? 'jobDetail' : 'broadDetail';
-    document.querySelectorAll('#' + grpId + ' .radio-pill').forEach(function(p) { p.classList.remove('on'); });
-    el.classList.add('on');
-    var det = document.getElementById(detId);
-    var inp = det.querySelector('input,textarea');
-    if (val === '있음') {
-      det.classList.add('show');
-      if (inp) inp.required = true;
-    } else {
-      det.classList.remove('show');
-      if (inp) { inp.required = false; inp.value = ''; }
+    // 실제 radio 값 설정
+    var chk = el.querySelector('input[type="radio"]');
+    if(chk) chk.checked = true;
+    radioState[type] = val;
+    // 본업/방송경험 상세 칸 토글
+    if(type === 'job') {
+      var det = document.getElementById('jobDetail');
+      var inp = document.getElementById('f_job');
+      if(val === '있음'){ det.classList.add('show'); } else { det.classList.remove('show'); if(inp) inp.value=''; }
+    }
+    if(type === 'broad') {
+      var det2 = document.getElementById('broadDetail');
+      var inp2 = document.getElementById('f_platform');
+      if(val === '있음'){ det2.classList.add('show'); } else { det2.classList.remove('show'); if(inp2) inp2.value=''; }
     }
   }
 
-  function pickFreq(val, el) {
-    document.querySelectorAll('#freqGroup .radio-pill').forEach(function(p) { p.classList.remove('on'); });
-    el.classList.add('on');
-  }
-
-  var selectedTimes = [];
   function toggleTime(el, val, event) {
     event.preventDefault();
     var chk = el.querySelector('input[type="checkbox"]');
     chk.checked = !chk.checked;
     el.classList.toggle('on');
     var idx = selectedTimes.indexOf(val);
-    if (idx === -1) { selectedTimes.push(val); }
-    else { selectedTimes.splice(idx, 1); }
+    if(idx===-1){ selectedTimes.push(val); } else { selectedTimes.splice(idx,1); }
     document.getElementById('timeHidden').value = selectedTimes.join(', ');
   }
 
   document.getElementById('hostForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    if (selectedTimes.length === 0) {
-      alert('방송 시간대를 최소 1개 이상 선택해 주세요.'); return;
+    var errors = [];
+    var errEl = document.getElementById('errMsg');
+    errEl.style.display = 'none';
+
+    // JS 유효성 검사
+    if(!document.getElementById('f_name').value.trim()) errors.push('이름을 입력해 주세요.');
+    if(!radioState.gender) errors.push('성별을 선택해 주세요.');
+    if(!document.getElementById('f_birth').value) errors.push('생년월일을 입력해 주세요.');
+    if(!document.getElementById('f_phone').value.trim()) errors.push('전화번호를 입력해 주세요.');
+    if(!document.getElementById('f_tiktok').value.trim()) errors.push('틱톡 ID를 입력해 주세요.');
+    if(!document.getElementById('f_nick').value.trim()) errors.push('닉네임을 입력해 주세요.');
+    if(!document.getElementById('f_region').value.trim()) errors.push('거주 지역을 입력해 주세요.');
+    if(!radioState.job) errors.push('본업 유무를 선택해 주세요.');
+    if(!radioState.broad) errors.push('방송 경험 유무를 선택해 주세요.');
+    if(!radioState.freq) errors.push('주 방송 횟수를 선택해 주세요.');
+    if(selectedTimes.length === 0) errors.push('방송 시간대를 최소 1개 이상 선택해 주세요.');
+    if(!document.getElementById('f_content').value.trim()) errors.push('콘텐츠 방향성을 입력해 주세요.');
+    if(!document.getElementById('agreeChk').checked) errors.push('개인정보 수집·이용에 동의해 주세요.');
+
+    if(errors.length > 0) {
+      errEl.innerHTML = errors.join('<br>');
+      errEl.style.display = 'block';
+      errEl.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
     }
-    if (!document.getElementById('agreeChk').checked) {
-      alert('개인정보 수집·이용에 동의해 주세요.'); return;
-    }
+
     var btn = document.getElementById('submitBtn');
-    var err = document.getElementById('errMsg');
-    err.style.display = 'none';
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span> 제출 중...';
+
     var fd = new FormData(e.target);
     var data = {};
-    fd.forEach(function(v, k) {
-      if (k === '방송시간대') return;
-      data[k] = v;
-    });
+    fd.forEach(function(v,k){ if(k!=='방송시간대') data[k]=v; });
     data['방송시간대'] = document.getElementById('timeHidden').value;
+    // radioState에서 직접 덮어쓰기 (hidden radio 대비)
+    data['성별'] = radioState.gender;
+    data['본업유무'] = radioState.job;
+    data['방송경험유무'] = radioState.broad;
+    data['주방송횟수'] = radioState.freq;
+
     fetch(GAS_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify(data)
+      method:'POST', headers:{'Content-Type':'text/plain'}, body:JSON.stringify(data)
     })
-    .then(function(res) { return res.json(); })
-    .then(function(json) {
-      if (json.result === 'ok') { showSuccess(); }
-      else { throw new Error(json.message || '오류가 발생했습니다.'); }
+    .then(function(res){return res.json();})
+    .then(function(json){
+      if(json.result==='ok'){ showSuccess(); }
+      else { throw new Error(json.message||'오류가 발생했습니다.'); }
     })
-    .catch(function(ex) {
-      if (ex.message === 'Failed to fetch' || ex.name === 'TypeError') { showSuccess(); }
+    .catch(function(ex){
+      if(ex.message==='Failed to fetch'||ex.name==='TypeError'){ showSuccess(); }
       else {
-        err.textContent = '오류: ' + ex.message;
-        err.style.display = 'block';
-        btn.disabled = false;
-        btn.innerHTML = '🚀 &nbsp; 가입 신청하기';
+        errEl.textContent='제출 오류: '+ex.message;
+        errEl.style.display='block';
+        btn.disabled=false;
+        btn.innerHTML='🚀 &nbsp; 가입 신청하기';
       }
     });
   });
 
   function showSuccess() {
-    document.getElementById('hostForm').style.display = 'none';
-    document.getElementById('success-screen').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('hostForm').style.display='none';
+    document.getElementById('success-screen').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
   }
 </script>
 </body>
